@@ -17,14 +17,18 @@ while game:
     #deltaTime is the time taken since that last loop execution, useful for keeping movement regular even when lower or higher framerates are observed
     deltaTime = clock.tick(fps) / 1000 
 
-    #all inputs
+#all inputs
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game = False
             break
-
-    
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE: # ends the game, can be a different key if desired. The program will run fine without this
+                game = False
+                break
+#            if event.key == pygame.K_<keyname>:
+#                <put your logic here>
     #end of loop
-    pygame.display.flip()
+    pygame.display.flip() #updates the screen to show any graphical changes
 
 pygame.quit()
